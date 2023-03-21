@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GetPersonViewController: UIViewController {
+final class GetPersonViewController: UIViewController {
     
     private let urlPersonRequest = "https://randomuser.me/api/"
 
