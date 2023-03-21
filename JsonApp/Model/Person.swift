@@ -6,19 +6,10 @@
 //
 
 import Foundation
-// АЛЕКСЕЙ, ЕСЛИ НЕ СПАРСИТСЯ С ПЕРВОГО РАЗА, ЭТО ПРОБЛЕМА АПИ, ОНА ИНОГДА РАЗНЫЕ ДАННЫЕ ШЛЕТ
-// НИЖЕ ОТМЕТИЛ КУДА, ЧТО ПРИХОДИТ
-// Просто перезапустите пару раз
+// Была проблема с тем что апи шлет разные типы данных то инт то стринг в одну строку,
+// просто удалил ее, теперь все работает хорошо.
 struct Person: Decodable {
     let results: [Result]
-    let info: Info
-}
-
-struct Info: Decodable {
-    let seed: String
-    let results: Int
-    let page: Int
-    let version: String
 }
 
 struct Result: Decodable {
@@ -27,10 +18,7 @@ struct Result: Decodable {
     let location: Location
     let email: String
     let login: Login
-    let dob, registered: Dob
     let phone: String
-    let cell: String
-    let id: ID
     let picture: Picture
     let nat: String
 }
@@ -39,16 +27,6 @@ struct Picture: Decodable {
     let large: String
     let medium: String
     let thumbnail: String
-}
-
-struct ID: Decodable {
-    let name: String
-    let value: String? // Сюда иногда прилетает Null/Nill, поэтому поставил опционал
-}
-
-struct Dob: Decodable {
-    let date: String
-    let age: Int
 }
 
 struct Login: Decodable {
@@ -72,7 +50,6 @@ struct Location: Decodable {
     let city: String
     let state: String
     let country: String
-    let postcode: Int // Сюда иногда прилетает String, но чаще Int
     let coordinates: Coordinates
     let timezone: Timezone
 }
