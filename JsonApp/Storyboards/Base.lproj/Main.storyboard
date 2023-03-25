@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eq3-2I-rUm">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,25 +8,199 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Get Person View Controller-->
+        <!--Искать-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GetPersonViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PersonShowingViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4kR-Uf-NuR">
+                                <rect key="frame" x="0.0" y="16" width="320" height="278"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="76" translatesAutoresizingMaskIntoConstraints="NO" id="0VC-PV-slJ">
+                                <rect key="frame" x="16" y="390" width="288" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Km3-2m-dgb">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="64"/>
+                                        <color key="backgroundColor" red="0.4350921619" green="0.73687537520000002" blue="0.60438425370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Like!">
+                                            <color key="titleColor" red="0.0" green="0.096798469390000003" blue="0.32656994049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="chooseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ie9-yk-fh1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT0-GV-pIK">
+                                        <rect key="frame" x="182" y="0.0" width="106" height="64"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="No!">
+                                            <color key="titleColor" red="0.0" green="0.096798469390000003" blue="0.32656994049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="chooseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG0-Mf-c9M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIr-hn-fcM">
+                                <rect key="frame" x="16" y="302" width="288" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzU-qD-RJJ" customClass="SpringButton" customModule="SpringAnimation">
+                                <rect key="frame" x="50.5" y="247.5" width="219" height="73"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rzU-qD-RJJ" secondAttribute="height" multiplier="3:1" id="Q8A-MP-FbO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start Meeting">
+                                    <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startMeetingTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="XvZ-5e-YGK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4kR-Uf-NuR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.489437" id="4gr-gu-ZEG"/>
+                            <constraint firstItem="rzU-qD-RJJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9HH-Mc-XM6"/>
+                            <constraint firstItem="rzU-qD-RJJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hmw-fi-B1J"/>
+                            <constraint firstItem="4kR-Uf-NuR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IsS-Pz-BGU"/>
+                            <constraint firstItem="4kR-Uf-NuR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Pks-YJ-Rnv"/>
+                            <constraint firstItem="jIr-hn-fcM" firstAttribute="top" secondItem="4kR-Uf-NuR" secondAttribute="bottom" constant="8" symbolic="YES" id="Sb8-vH-0gs"/>
+                            <constraint firstItem="jIr-hn-fcM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="U0N-Dq-b2R"/>
+                            <constraint firstItem="rzU-qD-RJJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="219:568" id="VTu-0V-5Tb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jIr-hn-fcM" secondAttribute="trailing" constant="16" id="Whe-FM-YF5"/>
+                            <constraint firstItem="4kR-Uf-NuR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="boQ-0j-Cm6"/>
+                            <constraint firstItem="jIr-hn-fcM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lWL-Lx-aVO"/>
+                            <constraint firstItem="0VC-PV-slJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wKQ-YW-Fvi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0VC-PV-slJ" secondAttribute="trailing" constant="16" id="wKx-Yu-gHt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0VC-PV-slJ" secondAttribute="bottom" constant="65" id="xJM-Qv-eev"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Искать" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="2JY-ah-mcg"/>
+                    <connections>
+                        <outlet property="dislikeButton" destination="KT0-GV-pIK" id="ZWG-eU-SWO"/>
+                        <outlet property="likeButton" destination="Km3-2m-dgb" id="PCd-Gf-tVF"/>
+                        <outlet property="personImageView" destination="4kR-Uf-NuR" id="LZ9-dg-xsP"/>
+                        <outlet property="personInfoLabel" destination="jIr-hn-fcM" id="9UU-Hh-zKJ"/>
+                        <outlet property="startMeetingButton" destination="rzU-qD-RJJ" id="1Yv-gI-IvI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="5"/>
+            <point key="canvasLocation" x="-474.375" y="831.33802816901414"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="tGP-aK-udI">
+            <objects>
+                <tableViewController id="jte-Di-D0Y" customClass="FavoriteListControllerTableViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="vTe-2d-PSc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="jDL-Fq-RFg">
+                                <rect key="frame" x="0.0" y="50" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jDL-Fq-RFg" id="Dam-bx-NLv">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jte-Di-D0Y" id="MGq-NJ-OzB"/>
+                            <outlet property="delegate" destination="jte-Di-D0Y" id="nXL-Fc-7LB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ROd-9G-rcw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0mD-Nd-Srw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="831"/>
+        </scene>
+        <!--Любимые-->
+        <scene sceneID="mWf-Sf-zes">
+            <objects>
+                <navigationController id="XMa-q5-g5u" customClass="NavigationViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Любимые" image="heart" catalog="system" id="qO6-gz-LIh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OVE-fO-CTf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jte-Di-D0Y" kind="relationship" relationship="rootViewController" id="8JC-VX-MQZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5W-ZO-jlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="831"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VdK-4i-q39">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Eq3-2I-rUm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oyL-cr-ryE">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="tertiaryLabelColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="kAa-ha-hc4"/>
+                        <segue destination="XMa-q5-g5u" kind="relationship" relationship="viewControllers" id="y9O-qS-vpI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ywo-Kc-mBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65.625" y="4.225352112676056"/>
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

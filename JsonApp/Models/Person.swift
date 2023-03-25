@@ -6,13 +6,11 @@
 //
 
 import Foundation
-// Была проблема с тем что апи шлет разные типы данных то инт то стринг в одну строку,
-// просто удалил ее, теперь все работает хорошо.
-struct Person: Decodable {
-    let results: [Result]
+struct RandomPerson: Decodable {
+    let results: [Person]
 }
 
-struct Result: Decodable {
+struct Person: Decodable {
     let gender: String
     let name: Name
     let location: Location
@@ -24,9 +22,9 @@ struct Result: Decodable {
 }
 
 struct Picture: Decodable {
-    let large: String
-    let medium: String
-    let thumbnail: String
+    let large: URL
+    let medium: URL
+    let thumbnail: URL
 }
 
 struct Login: Decodable {
