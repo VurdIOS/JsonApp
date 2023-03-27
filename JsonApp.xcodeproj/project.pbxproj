@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A050AFC29CCBBFE00AB2526 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A050AFB29CCBBFE00AB2526 /* NetworkManager.swift */; };
-		3A6E266C29CF5FBE003FBBFB /* TabBarControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266B29CF5FBE003FBBFB /* TabBarControllerController.swift */; };
-		3A6E266E29CF66B3003FBBFB /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266D29CF66B3003FBBFB /* NavigationViewController.swift */; };
-		3A6E267029CF66F6003FBBFB /* FavoriteListControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266F29CF66F6003FBBFB /* FavoriteListControllerTableViewController.swift */; };
+		3A6E266C29CF5FBE003FBBFB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266B29CF5FBE003FBBFB /* MainTabBarController.swift */; };
+		3A6E266E29CF66B3003FBBFB /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266D29CF66B3003FBBFB /* MainNavigationViewController.swift */; };
+		3A6E267029CF66F6003FBBFB /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E266F29CF66F6003FBBFB /* FavoriteListController.swift */; };
 		3A6E267629CF752F003FBBFB /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6E267529CF752F003FBBFB /* SpringAnimation */; };
 		3A9F816429C8CCA900CBEC40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F816329C8CCA900CBEC40 /* AppDelegate.swift */; };
 		3A9F816629C8CCAA00CBEC40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F816529C8CCAA00CBEC40 /* SceneDelegate.swift */; };
@@ -23,9 +23,9 @@
 
 /* Begin PBXFileReference section */
 		3A050AFB29CCBBFE00AB2526 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		3A6E266B29CF5FBE003FBBFB /* TabBarControllerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerController.swift; sourceTree = "<group>"; };
-		3A6E266D29CF66B3003FBBFB /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		3A6E266F29CF66F6003FBBFB /* FavoriteListControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListControllerTableViewController.swift; sourceTree = "<group>"; };
+		3A6E266B29CF5FBE003FBBFB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3A6E266D29CF66B3003FBBFB /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		3A6E266F29CF66F6003FBBFB /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
 		3A9F816029C8CCA900CBEC40 /* JsonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9F816329C8CCA900CBEC40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9F816529C8CCAA00CBEC40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				3A9F816729C8CCAA00CBEC40 /* PersonShowingViewController.swift */,
-				3A6E266B29CF5FBE003FBBFB /* TabBarControllerController.swift */,
-				3A6E266D29CF66B3003FBBFB /* NavigationViewController.swift */,
-				3A6E266F29CF66F6003FBBFB /* FavoriteListControllerTableViewController.swift */,
+				3A6E266B29CF5FBE003FBBFB /* MainTabBarController.swift */,
+				3A6E266D29CF66B3003FBBFB /* MainNavigationViewController.swift */,
+				3A6E266F29CF66F6003FBBFB /* FavoriteListController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,13 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6E266C29CF5FBE003FBBFB /* TabBarControllerController.swift in Sources */,
-				3A6E267029CF66F6003FBBFB /* FavoriteListControllerTableViewController.swift in Sources */,
+				3A6E266C29CF5FBE003FBBFB /* MainTabBarController.swift in Sources */,
+				3A6E267029CF66F6003FBBFB /* FavoriteListController.swift in Sources */,
 				3A9F817829C8D46600CBEC40 /* Person.swift in Sources */,
 				3A9F816829C8CCAA00CBEC40 /* PersonShowingViewController.swift in Sources */,
 				3A050AFC29CCBBFE00AB2526 /* NetworkManager.swift in Sources */,
 				3A9F816429C8CCA900CBEC40 /* AppDelegate.swift in Sources */,
-				3A6E266E29CF66B3003FBBFB /* NavigationViewController.swift in Sources */,
+				3A6E266E29CF66B3003FBBFB /* MainNavigationViewController.swift in Sources */,
 				3A9F816629C8CCAA00CBEC40 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

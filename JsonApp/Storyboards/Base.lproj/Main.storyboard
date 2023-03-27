@@ -36,7 +36,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="chooseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ie9-yk-fh1"/>
+                                            <action selector="chooseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="roV-pa-df3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT0-GV-pIK">
@@ -53,7 +53,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="chooseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG0-Mf-c9M"/>
+                                            <action selector="chooseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vk-i6-Uyf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,19 +120,22 @@
         <!--Root View Controller-->
         <scene sceneID="tGP-aK-udI">
             <objects>
-                <tableViewController id="jte-Di-D0Y" customClass="FavoriteListControllerTableViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jte-Di-D0Y" customClass="FavoriteListController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="vTe-2d-PSc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="jDL-Fq-RFg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritePersonCell" id="jDL-Fq-RFg">
                                 <rect key="frame" x="0.0" y="50" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jDL-Fq-RFg" id="Dam-bx-NLv">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="pmZ-9W-bta" kind="show" id="ru1-qp-Yb5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -146,10 +149,26 @@
             </objects>
             <point key="canvasLocation" x="1464" y="831"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="g99-88-RkM">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="pmZ-9W-bta" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rmK-oS-vlf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2Ha-Hy-4QD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="twY-dI-6DR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNj-nn-ua0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="830"/>
+        </scene>
         <!--Любимые-->
         <scene sceneID="mWf-Sf-zes">
             <objects>
-                <navigationController id="XMa-q5-g5u" customClass="NavigationViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="XMa-q5-g5u" customClass="MainNavigationViewController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Любимые" image="heart" catalog="system" id="qO6-gz-LIh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OVE-fO-CTf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -163,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="568" y="831"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="VdK-4i-q39">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Eq3-2I-rUm" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Eq3-2I-rUm" customClass="MainTabBarController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oyL-cr-ryE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

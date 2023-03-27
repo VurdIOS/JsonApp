@@ -5,6 +5,8 @@
 //  Created by Камаль Атавалиев on 20.03.2023.
 //
 
+var favoriteList: [[Person]] = []
+
 import UIKit
 import SpringAnimation
 final class PersonShowingViewController: UIViewController {
@@ -20,7 +22,6 @@ final class PersonShowingViewController: UIViewController {
     @IBOutlet var personImageView: UIImageView!
     
     var randomPerson: [Person] = []
-    var randomPersonForTestOnView: [Person] = []
     let personModel = NetworkManager.shared
     
     override func viewDidLoad() {
@@ -28,34 +29,37 @@ final class PersonShowingViewController: UIViewController {
       buttonsShowOrHidden(true)
         animatingstartButtonIN()
 
+        
+
 
     }
     
-   
     @IBAction func startMeetingTapped() {
         getPerson()
         animatingstartButtonOUT()
         buttonsShowOrHidden(false)
-        
-
     }
     
-    @IBAction func chooseButtonTapped(_ sender: UIButton) {
+    
+  
+    @IBAction func chooseButton(_ sender: UIButton) {
         switch sender {
         case likeButton:
             getPerson()
+            favoriteList.append(randomPerson)
         default:
             getPerson()
         }
     }
     
+
     func getPerson() {
         personModel.fetchPerson(from: Link.api.url) { [weak self] result in
             switch result {
             case .success(let person):
-                print(person)
                 self?.randomPerson = person.results
                 self?.unZipPerson()
+                
             case .failure(let error):
                 print(error)
             }
@@ -66,8 +70,8 @@ final class PersonShowingViewController: UIViewController {
         randomPerson.forEach { person in
             personInfoLabel.text =
 """
-\(person.name.first) \(person.name.last) \(Int.random(in: 18...35))
-Город: \(person.location.city)
+\(person.fullName), \(Int.random(in: 18...35))
+\(person.location.country), \(person.location.city)
 Почта: \(person.email)
 Национальность: \(person.nat)
 
@@ -83,15 +87,16 @@ final class PersonShowingViewController: UIViewController {
             }
         }
     }
-
 }
+
 extension PersonShowingViewController {
+    
     func buttonsShowOrHidden(_ hidden: Bool) {
         likeButton.isHidden = hidden
         dislikeButton.isHidden = hidden
         personInfoLabel.isHidden = hidden
         tabBarController?.tabBar.isHidden = hidden
-//        startMeetingButton.isHidden = !hidden
+        startMeetingButton.isHidden = !hidden
     }
     func animatingstartButtonIN() {
         startMeetingButton.animation = "shake"

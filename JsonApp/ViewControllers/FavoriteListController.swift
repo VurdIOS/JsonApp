@@ -7,13 +7,14 @@
 
 import UIKit
 
-class FavoriteListControllerTableViewController: UITableViewController {
+class FavoriteListController: UITableViewController {
 
-    var randomPersonForTestOnList: [Person] = []
-    
+    var favoritePersonList = favoriteList
+    let personModel = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 100
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,25 +25,37 @@ class FavoriteListControllerTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        favoriteList.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoritePersonCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        let person = favoriteList[indexPath.row]
+        
+        person.forEach { person in
+            content.text = person.fullName
+            content.secondaryText = person.location.country
+            
+            personModel.fetchPersonImage(from: person.picture.medium) { [weak self] result in
+                switch result {
+                case .success(let personPicture):
+                    content.image = UIImage(data: personPicture)
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        cell.contentConfiguration = content
+
+
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
