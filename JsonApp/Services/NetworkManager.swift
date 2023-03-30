@@ -16,7 +16,7 @@ enum Link {
         case .api:
             return URL(string: "https://randomuser.me/api/")!
         }
-    } 
+    }
 }
 
 enum NetworkError: Error {
@@ -30,9 +30,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     private init () {}
-    
-    
-    
+
     func fetchPerson (completion: @escaping(Result<[User], AFError>) -> Void) {
         AF.request(Link.api.url)
             .validate()
@@ -43,8 +41,8 @@ class NetworkManager {
                     completion(.success(users))
                 case .failure(let error):
                     completion(.failure(error))
+                }
             }
-        }
     }
     
     func fetchPersonData(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
@@ -59,5 +57,4 @@ class NetworkManager {
                 }
             }
     }
-
 }

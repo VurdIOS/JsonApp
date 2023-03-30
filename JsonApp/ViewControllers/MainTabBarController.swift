@@ -7,10 +7,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    
-    let personModel = NetworkManager.shared
-    var randomPerson: [User] = []
-    var favoriteList: [[User]] = []
+
     
     
     override func viewDidLoad() {

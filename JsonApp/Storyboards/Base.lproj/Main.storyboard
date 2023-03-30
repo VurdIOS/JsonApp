@@ -117,7 +117,7 @@
             </objects>
             <point key="canvasLocation" x="-474.375" y="831.33802816901414"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favorite-->
         <scene sceneID="tGP-aK-udI">
             <objects>
                 <tableViewController id="jte-Di-D0Y" customClass="FavoriteListController" customModule="JsonApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <outlet property="delegate" destination="jte-Di-D0Y" id="nXL-Fc-7LB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ROd-9G-rcw"/>
+                    <navigationItem key="navigationItem" title="Favorite" id="ROd-9G-rcw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mD-Nd-Srw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -28,10 +28,6 @@ final class PersonShowingViewController: UIViewController {
         super.viewDidLoad()
         buttonsShowOrHidden(true)
         animatingstartButtonIN()
-        
-        
-        
-        
     }
     
     @IBAction func startMeetingTapped() {
@@ -39,8 +35,6 @@ final class PersonShowingViewController: UIViewController {
         animatingstartButtonOUT()
         buttonsShowOrHidden(false)
     }
-    
-    
     
     @IBAction func chooseButton(_ sender: UIButton) {
         switch sender {
@@ -51,22 +45,7 @@ final class PersonShowingViewController: UIViewController {
             downloadData()
         }
     }
-    
-    
-    //    func getPerson() {
-    //        personModel.fetchPerson(from: Link.api.url) { [weak self] result in
-    //            switch result {
-    //            case .success(let person):
-    //                self?.randomPerson = person.results
-    //                self?.unZipPerson()
-    //
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    
-    
+
     func downloadData () {
         personModel.fetchPerson { [self] result in
             switch result {
@@ -79,6 +58,7 @@ final class PersonShowingViewController: UIViewController {
             }
         }
     }
+    
     func setPersonLabels() {
         let person = randomPerson[0]
         
@@ -98,7 +78,6 @@ final class PersonShowingViewController: UIViewController {
                 print(error)
             }
         }
-        
     }
 }
 

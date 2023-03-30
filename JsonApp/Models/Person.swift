@@ -35,7 +35,7 @@ struct User {
         
         nat = value["nat"] as? String ?? ""
     }
-
+    
     
     static func getRandomUser(from value: Any) -> [User] {
         guard let value = value as? [String: Any] else { return [] }
