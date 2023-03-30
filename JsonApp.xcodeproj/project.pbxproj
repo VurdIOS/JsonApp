@@ -19,6 +19,7 @@
 		3A9F816D29C8CCAA00CBEC40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9F816C29C8CCAA00CBEC40 /* Assets.xcassets */; };
 		3A9F817029C8CCAA00CBEC40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9F816E29C8CCAA00CBEC40 /* LaunchScreen.storyboard */; };
 		3A9F817829C8D46600CBEC40 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F817729C8D46600CBEC40 /* Person.swift */; };
+		3AECEF5129D35D33002C605D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3AECEF5029D35D33002C605D /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6E267629CF752F003FBBFB /* SpringAnimation in Frameworks */,
+				3AECEF5129D35D33002C605D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +152,7 @@
 			name = JsonApp;
 			packageProductDependencies = (
 				3A6E267529CF752F003FBBFB /* SpringAnimation */,
+				3AECEF5029D35D33002C605D /* Alamofire */,
 			);
 			productName = JsonApp;
 			productReference = 3A9F816029C8CCA900CBEC40 /* JsonApp.app */;
@@ -181,6 +184,7 @@
 			mainGroup = 3A9F815729C8CCA900CBEC40;
 			packageReferences = (
 				3A6E267129CF71C0003FBBFB /* XCRemoteSwiftPackageReference "SpringAnimation" */,
+				3AECEF4F29D35D33002C605D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3A9F816129C8CCA900CBEC40 /* Products */;
 			projectDirPath = "";
@@ -450,6 +454,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		3AECEF4F29D35D33002C605D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -457,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A6E267129CF71C0003FBBFB /* XCRemoteSwiftPackageReference "SpringAnimation" */;
 			productName = SpringAnimation;
+		};
+		3AECEF5029D35D33002C605D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AECEF4F29D35D33002C605D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

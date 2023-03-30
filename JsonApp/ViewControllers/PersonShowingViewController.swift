@@ -5,7 +5,7 @@
 //  Created by Камаль Атавалиев on 20.03.2023.
 //
 
-var favoriteList: [[Person]] = []
+var favoriteList: [[User]] = []
 
 import UIKit
 import SpringAnimation
@@ -21,73 +21,87 @@ final class PersonShowingViewController: UIViewController {
     
     @IBOutlet var personImageView: UIImageView!
     
-    var randomPerson: [Person] = []
+    var randomPerson: [User] = []
     let personModel = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      buttonsShowOrHidden(true)
+        buttonsShowOrHidden(true)
         animatingstartButtonIN()
-
         
-
-
+        
+        
+        
     }
     
     @IBAction func startMeetingTapped() {
-        getPerson()
+        downloadData()
         animatingstartButtonOUT()
         buttonsShowOrHidden(false)
     }
     
     
-  
+    
     @IBAction func chooseButton(_ sender: UIButton) {
         switch sender {
         case likeButton:
-            getPerson()
+            downloadData()
             favoriteList.append(randomPerson)
         default:
-            getPerson()
+            downloadData()
         }
     }
     
-
-    func getPerson() {
-        personModel.fetchPerson(from: Link.api.url) { [weak self] result in
+    
+    //    func getPerson() {
+    //        personModel.fetchPerson(from: Link.api.url) { [weak self] result in
+    //            switch result {
+    //            case .success(let person):
+    //                self?.randomPerson = person.results
+    //                self?.unZipPerson()
+    //
+    //            case .failure(let error):
+    //                print(error)
+    //            }
+    //        }
+    //    }
+    
+    
+    func downloadData () {
+        personModel.fetchPerson { [self] result in
             switch result {
             case .success(let person):
-                self?.randomPerson = person.results
-                self?.unZipPerson()
-                
+                self.randomPerson = person
+                self.setPersonLabels()
+                print(self.randomPerson)
             case .failure(let error):
                 print(error)
             }
         }
     }
-    
-    func unZipPerson() {
-        randomPerson.forEach { person in
-            personInfoLabel.text =
+    func setPersonLabels() {
+        let person = randomPerson[0]
+        
+        personInfoLabel.text =
 """
-\(person.fullName), \(Int.random(in: 18...35))
+\(person.name.first) \(person.name.last), \(Int.random(in: 18...35))
 \(person.location.country), \(person.location.city)
 Почта: \(person.email)
 Национальность: \(person.nat)
 
 """
-            personModel.fetchPersonImage(from: person.picture.large) { [weak self] result in
-                switch result {
-                case .success(let personImage):
-                    self?.personImageView.image = UIImage(data: personImage)
-                    
-                case .failure(let error):
-                    print(error)
-                }
+        personModel.fetchPersonData(from: person.picture.large) { [self] result in
+            switch result {
+            case .success(let imageData):
+                self.personImageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
             }
         }
+        
     }
 }
+
 
 extension PersonShowingViewController {
     

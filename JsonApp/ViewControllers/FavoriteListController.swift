@@ -15,6 +15,8 @@ class FavoriteListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,28 +35,37 @@ class FavoriteListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoritePersonCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let person = favoriteList[indexPath.row]
+        content.imageProperties.maximumSize = CGSize(width: 100, height: 100)
+        content.imageProperties.cornerRadius = 50
         
-        person.forEach { person in
-            content.text = person.fullName
-            content.secondaryText = person.location.country
-            
-            personModel.fetchPersonImage(from: person.picture.medium) { [weak self] result in
-                switch result {
-                case .success(let personPicture):
-                    content.image = UIImage(data: personPicture)
-                    self?.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
+        let person = favoriteList[indexPath.row]
+        let pers = person[0]
+        
+        content.text = "\(pers.name.first) \(pers.name.last)"
+        content.secondaryText = pers.location.country
+        
+        personModel.fetchPersonData(from: pers.picture.medium) { result in
+            switch result {
+            case .success(let imageData):
+                content.image = UIImage(data: imageData)
+                cell.contentConfiguration = content
+            case .failure(let error):
+                print(error)
             }
         }
+        
+
         cell.contentConfiguration = content
 
 
 
         return cell
+        }
+    
     }
+  
+    }
+
 
 
     /*
@@ -102,4 +113,4 @@ class FavoriteListController: UITableViewController {
     }
     */
 
-}
+
